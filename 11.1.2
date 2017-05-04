@@ -1,6 +1,0 @@
-a = load '/home/suresh/petrol_dataset.txt' USING PigStorage(',') as (id:chararray,name:chararray,buy_rate:chararray,sell_rate:chararray,volume_in:int,volume_out:int,year:int);
-b = group a by id;
-c = FOREACH b GENERATE group,SUM(a.volume_out) as sum_vol;
-d = order c  by sum_vol;
-e = LIMIT d 10;
-store e into '/home/suresh/Desktop/pigscripts/11.1.2ans';
